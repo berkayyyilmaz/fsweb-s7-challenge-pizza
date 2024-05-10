@@ -1,0 +1,25 @@
+
+body {
+    background-image: url('/Assets/mile1-assets/home-banner.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;}
+
+button{
+    background-color: #F5CD36;
+    width: 130px;
+    height: 40px;
+    max-width: 480px;
+    min-height: 40px;
+    color: white;
+    padding: 0;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color:black;
+    text-align: center;
+}
