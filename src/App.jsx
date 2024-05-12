@@ -3,14 +3,15 @@ import reactLogo from './assets/react.svg'
 import workintech from '/workintech.svg'
 import './App.css'
 import Home from './pages/home/Home.jsx'
-import './pages/home/Home.css'
+import Order from './pages/order/Order.jsx'
+
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <Home>
-    </Home>
+      <Order>
+    </Order>
     </>
   )
 };
