@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import Check from '..components/Check'
+import ekMlz from '../data/ekMlz.json'
 
 function Order() {
   return (
@@ -33,47 +35,11 @@ kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta denir.</p>
         </select></div>
 
         <label>Ek Malzemeler:</label>
-        <div>
-          <input type="checkbox" value="Pepperoni"  />
-          <label>Pepperoni</label>
-        </div>
-        <div>
-          <input type="checkbox" value="Domates"/>
-          <label>Domates</label>
-        </div>
-        <div>
-          <input type="checkbox" value="Biber"  />
-          <label>Biber</label>
-        </div>
-        <div>
-          <input type="checkbox" value="Sosis" />
-          <label>Sosis</label>
-        </div>
-        <div>
-          <input type="checkbox" value="Mısır" />
-          <label>Mısır</label>
-        </div>
-        <div>
-          <input type="checkbox" value="Sucuk"    />
-          <label>Sucuk</label>
-        </div>
-        <div>
-          <input type="checkbox" value="Soğan" />
-          <label>Soğan</label>
-        </div>
-        <div>
-          <input type="checkbox" value="Mantar"/>  
-          <label>Mantar</label>
-        </div>
-        <div>
-          <input type="checkbox" value="Zeytin"  />
-          <label>Zeytin</label>
-        </div>
-        <div>
-          <input type="checkbox" value="Ananas"  />
-          <label>Ananas</label>
-        </div>
-
+        <Check changeFn={handleChange}
+    isChecked={FormData.ekMlz.includes()}
+    fieldName
+    value
+    label></Check>
         </form>
         
     </div>
