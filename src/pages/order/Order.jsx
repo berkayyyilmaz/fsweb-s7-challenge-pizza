@@ -1,16 +1,22 @@
 import React, {useState} from 'react'
 import Check from '../components/Check'
 import ekMlz from '../../data/ekMlz.json'
+import pizza from '../../data/pizza.json'
+import { useHistory } from 'react-router-dom'
 
 const initialFormData = {
   boyut:'',
   hamur:'Hamur Kalınlığı',
   siparisNotu:'',
+  isim: '',
   ekMalzemeler: []
 }
 
+
+
 function Order() {
   const [formData,setFormData] = useState(initialFormData);
+  const history = useHistory();
 
 const handleChange = (e) => {
   console.log(e.target.value)
@@ -45,22 +51,23 @@ const handleSubmit = (event) =>{
   event.preventDefault();
   console.log(formData)
     handleClear();
+  history.push('/siparisalindi')
   
 }
 
-
+const disableForm = (
+  formData.ekMalzemeler.length>10 || 
+  formData.boyut == '' || 
+  formData.hamur =='Hamur Kalınlığı' ||
+  formData.isim.length<3)
   return (
     <div>
       <h1>Teknolojik Yemekler</h1>
-      <h2>Position Absolute Acı Pizza</h2>
-      <p>Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana
-göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha
-sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen,
-genellikle yuvarlak, düzleștirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan
-kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta denir.</p>
+      <h2>{pizza.name}</h2>
+      <p>{pizza.description}</p>
 
       <form onSubmit={handleSubmit}>
-        <label>Boyut Seç:</label>
+        <label>Boyut Seç *</label>
         <div>
         <label><input type="radio" id="html" value="Küçük" name='boyut'onChange={handleChange} checked={formData.boyut === 'Küçük'}/>
         Küçük</label>
@@ -73,7 +80,7 @@ kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta denir.</p>
         <label><input type="radio" id="html" value="Büyük" name='boyut' onChange={handleChange} checked={formData.boyut === 'Büyük'}/>
         Büyük</label>
         </div>
-        <div><label>Hamur Seç:</label></div>
+        <div><label>Hamur Seç *</label></div>
         <div><select name = "hamur" onChange={handleChange} value={formData.hamur}>
           <option value="Hamur Kalınlığı">Hamur Kalınlığı</option>
           <option value="İnce">İnce</option>
@@ -88,12 +95,13 @@ kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta denir.</p>
           isChecked={formData.ekMalzemeler.includes(mlz.value)}
           fieldName="ekMalzemeler"
           value={mlz.value}
-          label={mlz.value}
+          label={mlz.label}
           key={index}
         />
         ))}
-        <label>Sipariş Notu;<input type="text" name="siparisNotu" onChange={handleChange} value={formData.siparisNotu}/></label>
-        <button disabled={formData.ekMalzemeler.length>4}>Kaydet</button>
+        <label>İsim:<input type="text" name="isim" onChange={handleChange} value={formData.isim}/></label>
+        <label>Sipariş Notu:<input type="text" name="siparisNotu" onChange={handleChange} value={formData.siparisNotu}/></label>
+        <button disabled={disableForm}>Sipariş Ver</button>
         </form>
         
     </div>

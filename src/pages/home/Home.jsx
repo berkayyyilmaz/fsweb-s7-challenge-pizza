@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components'
-
+import { Link } from 'react-router-dom'
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -30,7 +30,7 @@ const Title = styled.h1`
   font-size: 3rem;
 `;
 
-const Button = styled.button`
+const StyledLink = styled(Link)`
   display: inline-block;
   padding: 12px 24px;
   background-color: #FDC913;
@@ -40,6 +40,12 @@ const Button = styled.button`
   font-size: 1.2rem;
   border: none;
   cursor: pointer;
+  transition: ease-out 0.3s;
+  &:hover {
+    color: black;
+    background: #FDF40F;
+    box-shadow:5px 5px;
+    font-size: 1.4rem;
 `;
 
 
@@ -53,7 +59,7 @@ function Home() {
     <Container>
       <Content>
         <Title>Hoş Geldiniz</Title>
-        <Button >Acıktım</Button>
+        <StyledLink to='/order' >Acıktım</StyledLink>
       </Content>
     </Container>
     </>
