@@ -1,11 +1,10 @@
 import React from 'react'
 import ekMlz from '../../data/ekMlz.json'
-import Check from '../components/Check'
+import Check from '../../components/Check'
 
 function Form({
     handleSubmit,
     handleChange,
-    disableForm,
     formData
 }) {
     const selectDough = ["Hamur Kalınlığı","İnce","Orta","Kalın"]
@@ -39,7 +38,7 @@ return (
 
     <label>Sipariş Notu:<input type="text" name="purchaseNote" onChange={handleChange} value={formData.purchaseNote}/></label>
 
-    <button disabled={disableForm}>Sipariş Ver</button>
+    <button >Sipariş Ver</button>
   </form>
   )
 }

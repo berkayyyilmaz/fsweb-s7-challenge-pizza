@@ -8,7 +8,6 @@ import { Switch, Route} from 'react-router-dom'
 import Success from './pages/success/Success.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
