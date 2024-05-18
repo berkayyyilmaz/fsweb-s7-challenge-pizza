@@ -1,16 +1,12 @@
 import React, {useState} from 'react'
 import { useHistory } from 'react-router-dom'
-
 //Data
 import initialFormData from '../../data/initialFormData.json'
 import pizzaInfo from '../../data/pizzaInfo.json'
-
 //Helper Functions
 import isFormDisabled  from '../../functions/isFormDisabled'
 //Components
 import Form from './Form'
-
-
 
 
 function Order() {

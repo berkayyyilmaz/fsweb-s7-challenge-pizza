@@ -22,7 +22,6 @@ function App() {
     <Route path='/siparisalindi' >
       <Success />
     </Route>
-    
   </Switch>
 
 

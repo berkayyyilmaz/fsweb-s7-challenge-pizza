@@ -50,9 +50,7 @@ const StyledLink = styled(Link)`
 
 
 function Home() {
-   // const handleClick = () => {
-  //  navigate('/order');
-    // butona onClick={handleClick} yazcaksın
+
   return (
     <>
     <GlobalStyle/>
