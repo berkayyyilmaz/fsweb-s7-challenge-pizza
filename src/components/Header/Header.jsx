@@ -4,6 +4,8 @@ import './Header.css';
 
 const Header = ({handleMenuClick}) => {
   return (
+    <div>
+    <h1 className='header'>Teknolojik Yemekler</h1>
     <nav>
       <ul>
         <li>
@@ -21,6 +23,7 @@ const Header = ({handleMenuClick}) => {
         </li>
       </ul>
     </nav>
+    </div>
   );
 };
 

@@ -9,6 +9,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover; 
   background-position: center;
+  
 }`
 
 
@@ -28,6 +29,7 @@ const Content = styled.div`
 
 const Title = styled.h1`
   font-size: 3rem;
+  margin:40px;
 `;
 
 const StyledLink = styled(Link)`

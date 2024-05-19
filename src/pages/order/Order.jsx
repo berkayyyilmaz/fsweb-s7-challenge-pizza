@@ -10,6 +10,7 @@ import Quantity from '../../components/Quantity/Quantity'
 //Toastify
 import { ToastContainer,toast, Flip } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import './Order.css'
 
 
 function Order() {
@@ -21,27 +22,24 @@ function Order() {
 
 const handleChange = (e) => {
   console.log(e.target.value)
-const {name, value, checked, type} = e.target;
-
-//Checking the checkboxes
-let newValue;
-if (type && type ==='checkbox') {
-  
-  const oldValues = formData[name];
-
-  if (oldValues.includes(value)){
-    newValue = oldValues.filter((v)=> v !== value);
-  } else{
-    newValue = [...oldValues, value];
+  const {name, value, checked, type} = e.target;
+  //Checking the checkboxes
+  let newValue;
+  if (type && type ==='checkbox') {
+    const oldValues = formData[name];
+    if (oldValues.includes(value)){
+      newValue = oldValues.filter((v)=> v !== value);
+    } else{
+      newValue = [...oldValues, value];
+    }
+  } else {
+    newValue = value;
   }
-} else {
-  newValue = value;
-}
 
-setFormData({
-  ...formData,
-  [name]: newValue,
-})
+  setFormData({
+    ...formData,
+    [name]: newValue,
+  })
 }
 
 useEffect(()=>{
@@ -101,9 +99,9 @@ const handleSubmit = (e) =>{
   }
 
   return (
-    <div>
-      <h1>Teknolojik Yemekler</h1>
-      <Header handleMenuClick={handleMenuClick}/>
+    <div className='pageContainer'>
+      
+      <Header className handleMenuClick={handleMenuClick}/>
       <h2>{pizzaInfo.name}</h2>
       <p>{pizzaInfo.description}</p>
 
