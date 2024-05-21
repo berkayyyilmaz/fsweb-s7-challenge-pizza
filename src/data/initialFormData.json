@@ -3,5 +3,8 @@
     "doughTickness":"Hamur Kalınlığı",
     "purchaseNote":"",
     "clientName": "",
-    "additionalIngredients": []
+    "toppings": [],
+    "quantity": 1,
+    "toppingCost":0,
+    "totalCost" : 85.5
   }

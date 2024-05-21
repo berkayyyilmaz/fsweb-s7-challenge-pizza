@@ -1,4 +1,4 @@
-
-.pageContainer {
-    width:100%;
+div.full-height{
+    padding:0;
+    max-width: 100%;
 }

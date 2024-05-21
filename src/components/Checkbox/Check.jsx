@@ -7,8 +7,7 @@ function Check({
     value,
     label }) {
   return (
-    <div>
-    <label className="label-radioCh">
+    <label className="label">
         <input 
             type="checkbox"
             onChange={changeFn}
@@ -16,9 +15,9 @@ function Check({
             name={fieldName}
             value={value}       
         />{' '}
-        {label}
+        {value}
     </label>
-    </div>
+    
   )
 }
 

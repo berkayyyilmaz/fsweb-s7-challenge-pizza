@@ -12,7 +12,6 @@ body {
   
 }`
 
-
 const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -30,6 +29,7 @@ const Content = styled.div`
 const Title = styled.h1`
   font-size: 3rem;
   margin:40px;
+  color:white;
 `;
 
 const StyledLink = styled(Link)`
@@ -50,7 +50,6 @@ const StyledLink = styled(Link)`
     font-size: 1.4rem;
 `;
 
-
 function Home() {
 
   return (
@@ -58,7 +57,8 @@ function Home() {
     <GlobalStyle/>
     <Container>
       <Content>
-        <Title>Hoş Geldiniz</Title>
+        <Title>Teknolojik Yemekler</Title>
+        <Title>KOD ACIKTIRIR PIZZA, DOYURUR</Title>
         <StyledLink to='/order' >Acıktım</StyledLink>
       </Content>
     </Container>

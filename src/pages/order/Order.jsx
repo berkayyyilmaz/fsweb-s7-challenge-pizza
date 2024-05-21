@@ -11,13 +11,10 @@ import Quantity from '../../components/Quantity/Quantity'
 import { ToastContainer,toast, Flip } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import './Order.css'
-
+import { Container, Row, Col } from 'reactstrap';
 
 function Order() {
   const [formData,setFormData] = useState(initialFormData);
-  const [quantity,setQuantity] = useState(1)
-  const [toppingCost, setToppingCost] = useState(0)
-  const [totalCost, setTotalCost] = useState(pizzaInfo.price)
   const history = useHistory();
 
 const handleChange = (e) => {
@@ -42,10 +39,15 @@ const handleChange = (e) => {
   })
 }
 
-useEffect(()=>{
-  setToppingCost(formData.additionalIngredients.length*5*quantity)
-  setTotalCost(formData.additionalIngredients.length*5*quantity+pizzaInfo.price*quantity)
-},[formData,quantity])
+useEffect(() => {
+  const newFormData = {
+    ...formData,
+    toppingCost: formData.toppings.length * 5 * formData.quantity,
+    totalCost: formData.toppings.length * 5 * formData.quantity + pizzaInfo.price * formData.quantity
+  };
+
+  setFormData(newFormData);
+}, [formData.toppings, formData.quantity]);
 
 const handleClear = () =>{
   setFormData(initialFormData);
@@ -99,21 +101,26 @@ const handleSubmit = (e) =>{
   }
 
   return (
-    <div className='pageContainer'>
+    <Container fluid className="full-height">
       
-      <Header className handleMenuClick={handleMenuClick}/>
-      <h2>{pizzaInfo.name}</h2>
-      <p>{pizzaInfo.description}</p>
-
-      <Form handleSubmit={handleSubmit}
-      handleChange={handleChange}
-      formData={formData}
-      />
-      <Quantity quantity={quantity} setQuantity={setQuantity}/>
-      <div><label>Seçimler:{toppingCost}₺</label></div>
-      <div><label>Toplam:{totalCost}₺</label></div>
+      <Header handleMenuClick={handleMenuClick}/>
+      <Row>
+        <Col xs="3"></Col>
+        <Col xs="6" >
+          <h2>{pizzaInfo.name}</h2>
+          <p>{pizzaInfo.description}</p>
+          <Form handleSubmit={handleSubmit}
+            handleChange={handleChange}
+            formData={formData}
+          />
+        </Col>
+      </Row>
+      
+      <Quantity formData={formData} setFormData={setFormData}/>
+      <div><label>Seçimler:{formData.toppingCost}₺</label></div>
+      <div><label>Toplam:{formData.totalCost}₺</label></div>
       <ToastContainer/>
-    </div>
+      </Container>
   )
 }
 

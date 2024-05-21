@@ -1,11 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.css';
+import { Container } from 'reactstrap';
+
 
 const Header = ({handleMenuClick}) => {
   return (
     <div>
-    <h1 className='header'>Teknolojik Yemekler</h1>
+    <Container fluid><h1 className='header'>Teknolojik Yemekler</h1></Container>
     <nav>
       <ul>
         <li>

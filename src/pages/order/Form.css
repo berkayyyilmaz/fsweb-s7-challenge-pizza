@@ -1,0 +1,13 @@
+div.checkbox-container{
+    width: 100%;
+
+}
+.checkbox-container label {
+    display: inline-block;
+    margin-right: 10px; /* Aradaki boşluk */
+    margin-bottom: 10px; /* Alt satıra geçildiğinde aralık */
+  }
+
+div.materialsColumn{
+    justify-content: center;
+}
