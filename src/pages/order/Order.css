@@ -2,3 +2,11 @@ div.full-height{
     padding:0;
     max-width: 100%;
 }
+
+div.content{
+    padding:0;
+}
+
+div.left-blank {
+    padding:0;
+}

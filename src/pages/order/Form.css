@@ -4,10 +4,10 @@ div.checkbox-container{
 }
 .checkbox-container label {
     display: inline-block;
-    margin-right: 10px; /* Aradaki boşluk */
-    margin-bottom: 10px; /* Alt satıra geçildiğinde aralık */
+    margin-right: 10px; 
+    margin-bottom: 10px; 
   }
 
-div.materialsColumn{
+div.materials-column{
     justify-content: center;
 }

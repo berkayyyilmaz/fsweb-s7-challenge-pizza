@@ -6,7 +6,8 @@ import pizzaInfo from '../../data/pizzaInfo.json'
 //Components
 import Form from './Form'
 import Header from '../../components/Header/Header'
-import Quantity from '../../components/Quantity/Quantity'
+import PizzaInformation from '../../components/PizzaInformation/PizzaInformation'
+
 //Toastify
 import { ToastContainer,toast, Flip } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
@@ -93,6 +94,7 @@ const handleSubmit = (e) =>{
       handleClear();
       setTimeout(() => {
         history.push('/siparisalindi');
+        
       }, 2800);
   
 }
@@ -102,23 +104,18 @@ const handleSubmit = (e) =>{
 
   return (
     <Container fluid className="full-height">
-      
       <Header handleMenuClick={handleMenuClick}/>
       <Row>
-        <Col xs="3"></Col>
-        <Col xs="6" >
-          <h2>{pizzaInfo.name}</h2>
-          <p>{pizzaInfo.description}</p>
+        <Col xs="4" className='left-blank'></Col>
+        <Col xs="4" className='content' >
+          <PizzaInformation/>
           <Form handleSubmit={handleSubmit}
             handleChange={handleChange}
             formData={formData}
+            setFormData={setFormData}
           />
         </Col>
       </Row>
-      
-      <Quantity formData={formData} setFormData={setFormData}/>
-      <div><label>Seçimler:{formData.toppingCost}₺</label></div>
-      <div><label>Toplam:{formData.totalCost}₺</label></div>
       <ToastContainer/>
       </Container>
   )

@@ -15,7 +15,7 @@ function Check({
             name={fieldName}
             value={value}       
         />{' '}
-        {value}
+        {label}
     </label>
     
   )
