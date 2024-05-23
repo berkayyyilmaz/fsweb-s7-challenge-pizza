@@ -1,12 +1,22 @@
-
-div.checkbox-container{
-    width: 100%;
-
+div.checkbox-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
 }
+
+
+p.materials-note {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.label input {
+  margin-right: 8px; /* Checkbox ile etiket arasındaki boşluk */
+}
+
 .checkbox-container label {
-    display: inline-block;
-    margin-right: 10px; 
-    margin-bottom: 10px; 
+  display: flex;
+  align-items: center;
   }
 
 div.materials-column{

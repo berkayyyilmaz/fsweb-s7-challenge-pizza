@@ -21,45 +21,46 @@ return (
     <Container>
       <Row>
         <Col>
-        <label className='form-subtitle'>Boyut Seç <span className='asterix'>*</span></label>
-        <div className='size-options'>
-          {selectSize.map((s,index)=> (
-          <label className='option-label' key={index}><input type="radio" id="radio-button" value={s} name='size' onChange={handleChange} checked={formData.size === s}/>
-          {s}</label>
-          ))}
-        </div>
+          <label className='form-subtitle'>Boyut Seç <span className='asterix'>*</span></label>
+          <div className='size-options'>
+            {selectSize.map((selectedItem,index)=> (
+            <label className='option-label' key={index}><input type="radio" id="radio-button" value={selectedItem} name='size' onChange={handleChange} checked={formData.size === selectedItem}/>
+            {selectedItem}</label>
+            ))}
+          </div>
         </Col>
         <Col className='select-dough'>
-    <label className='form-subtitle'>Hamur Seç <span className='asterix'>*</span></label>
-      <div><select className='dough-selector' name = "doughTickness" onChange={handleChange} value={formData.doughTickness}>
-      {selectDough.map((s, index)=> (<option key={index} value={s} hidden={s === 'Hamur Kalınlığı' ? true : false}>{s}</option>))}
-      </select></div>
-      </Col>
+        <label className='form-subtitle'>Hamur Seç <span className='asterix'>*</span></label>
+          <div><select className='dough-selector' name = "doughTickness" onChange={handleChange} value={formData.doughTickness}>
+          {selectDough.map((selectedItem, index)=> (<option key={index} value={selectedItem} hidden={selectedItem === 'Hamur Kalınlığı' ? true : false}>{selectedItem}</option>))}
+          </select></div>
+        </Col>
       </Row> 
+
       <Row>
-        <Col xs='3'></Col>
-        <Col xs="6" className='materials-column'>
-    <label className='form-subtitle'>Ek Malzemeler</label>
-    <p>En fazla 10 malzeme seçebilirsiniz. 5₺</p>
-    <div className='checkbox-container'>
-      {ekMlz.map((item, index)=> (
-        <Check
-          changeFn={handleChange}
-          isChecked={formData.toppings && formData.toppings.includes(item.value)}
-          fieldName="toppings"
-          value={item.value}
-          label={item.label}
-          key={index}
-        />
-    ))}
-      </div>
-      </Col>
+        <Col xs="12" className='materials-column'>
+          <label className='form-subtitle'>Ek Malzemeler</label>
+          <p className='materials-note'>En fazla 10 malzeme seçebilirsiniz. 5₺</p>
+          <div className='checkbox-container'>
+            {ekMlz.map((item, index)=> (
+              <Check
+                changeFn={handleChange}
+                isChecked={formData.toppings && formData.toppings.includes(item.value)}
+                fieldName="toppings"
+                value={item.value}
+                label={item.label}
+                key={index}
+              />
+          ))}
+          </div>
+        </Col>
       </Row>
+
       <Row>
       <div className='text'><label className='form-subtitle'>İsim</label><input placeholder=' Lütfen İsminizi Giriniz...'type="text" name="clientName" onChange={handleChange} value={formData.clientName}/></div>
 
       <div className='text'><label className='form-subtitle'>Sipariş Notu</label><input placeholder=' Siparişinize eklemek istediğiniz bir not var mı?' type="text" name="purchaseNote" onChange={handleChange} value={formData.purchaseNote}/></div>
-    </Row>
+      </Row>
     <hr />
     <Row className='check-out'>
     <Col xs='5' className='column-quantity'>
