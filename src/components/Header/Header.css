@@ -64,7 +64,7 @@ div.container-fluid{
     
 }
 
-span {
+span.seperator {
     padding:0 0.5rem;
     color: white;
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './Quantity.css'
 
 function Quantity({formData,setFormData}) {
     
@@ -11,11 +12,11 @@ function Quantity({formData,setFormData}) {
 }
 
   return (
-    <>
-        <button type='button' onClick={decrease} disabled={formData.quantity<2}>-</button>
-        <div>{formData.quantity}</div>
-        <button type='button' onClick={increase}>+</button>
-    </>
+    <div className='quantity-div'>
+        <button className='left-button' type='button' onClick={decrease} disabled={formData.quantity<2}>-</button>
+        <div className='current-quantity'>{formData.quantity}</div>
+        <button className='right-button'type='button' onClick={increase}>+</button>
+    </div>
   )
 }
 

@@ -19,11 +19,11 @@ const Header = ({handleMenuClick}) => {
             Anasayfa
           </NavLink>
         </li>
-        <span>-</span>
+        <span className='seperator'>-</span>
         <li>
         <NavLink className="menu-link" to="#" onClick={handleMenuClick}>Seçenekler</NavLink>
         </li>
-        <span>-</span>
+        <span className='seperator'>-</span>
         <li>
           <NavLink to="/order" activeClassName="active">
             Sipariş Oluştur

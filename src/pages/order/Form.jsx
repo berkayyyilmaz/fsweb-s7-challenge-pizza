@@ -4,6 +4,8 @@ import Check from '../../components/Checkbox/Check'
 import Quantity from '../../components/Quantity/Quantity'
 import './Form.css'
 import { Container, Row, Col } from 'reactstrap';
+import selectSize from '../../data/selectSize.json';
+import selectDough from '../../data/selectDough.json'
 
 
 function Form({
@@ -12,23 +14,24 @@ function Form({
     formData,
     setFormData
 }) {
-    const selectDough = ["Hamur Kalınlığı","İnce","Orta","Kalın"]
-    const selectSize = ["Küçük","Orta","Büyük"]
+
 return (
 
   <form onSubmit={handleSubmit}>
     <Container>
       <Row>
         <Col>
-        <label>Boyut Seç *</label>
-          {selectSize.map((s,index)=> (<div >
-          <label><input type="radio" id="html" value={s} name='size' onChange={handleChange} checked={formData.size === s}/>
+        <label className='form-subtitle'>Boyut Seç <span className='asterix'>*</span></label>
+        <div className='size-options'>
+          {selectSize.map((s,index)=> (
+          <label className='option-label' key={index}><input type="radio" id="radio-button" value={s} name='size' onChange={handleChange} checked={formData.size === s}/>
           {s}</label>
-          </div>))}
+          ))}
+        </div>
         </Col>
-        <Col>
-    <label>Hamur Seç *</label>
-      <div><select name = "doughTickness" onChange={handleChange} value={formData.doughTickness}>
+        <Col className='select-dough'>
+    <label className='form-subtitle'>Hamur Seç <span className='asterix'>*</span></label>
+      <div><select className='dough-selector' name = "doughTickness" onChange={handleChange} value={formData.doughTickness}>
       {selectDough.map((s, index)=> (<option key={index} value={s} hidden={s === 'Hamur Kalınlığı' ? true : false}>{s}</option>))}
       </select></div>
       </Col>
@@ -36,7 +39,7 @@ return (
       <Row>
         <Col xs='3'></Col>
         <Col xs="6" className='materials-column'>
-    <label>Ek Malzemeler:</label>
+    <label className='form-subtitle'>Ek Malzemeler</label>
     <p>En fazla 10 malzeme seçebilirsiniz. 5₺</p>
     <div className='checkbox-container'>
       {ekMlz.map((item, index)=> (
@@ -52,15 +55,25 @@ return (
       </div>
       </Col>
       </Row>
-    <label>İsim:<input type="text" name="clientName" onChange={handleChange} value={formData.clientName}/></label>
+      <Row>
+      <div className='text'><label className='form-subtitle'>İsim</label><input placeholder=' Lütfen İsminizi Giriniz...'type="text" name="clientName" onChange={handleChange} value={formData.clientName}/></div>
 
-    <label>Sipariş Notu:<input type="text" name="purchaseNote" onChange={handleChange} value={formData.purchaseNote}/></label>
-
+      <div className='text'><label className='form-subtitle'>Sipariş Notu</label><input placeholder=' Siparişinize eklemek istediğiniz bir not var mı?' type="text" name="purchaseNote" onChange={handleChange} value={formData.purchaseNote}/></div>
+    </Row>
+    <hr />
+    <Row className='check-out'>
+    <Col xs='5' className='column-quantity'>
     <Quantity formData={formData} setFormData={setFormData}/>
-    
-    <div><label>Seçimler:{formData.toppingCost}₺</label></div>
-    <div><label>Toplam:{formData.totalCost}₺</label></div>
-    <button >Sipariş Ver</button>
+    </Col>
+    <Col xs='7' className='column-totals'>
+    <div className='total-calc'>
+    <label className='form-subtitle'>Sipariş Toplamı</label>
+    <div className='calcname-calc'><label>Seçimler</label><label>{parseFloat(formData.toppingCost).toFixed(2)}₺</label></div>
+    <div className='calcname-calc'><label className='all-totals'>Toplam</label><label className='all-totals'>{parseFloat(formData.totalCost).toFixed(2)}₺</label></div>
+    </div>
+    <button type='submit' className='order' >Sipariş Ver</button>
+    </Col>
+    </Row>
     </Container>
   </form>
   )
